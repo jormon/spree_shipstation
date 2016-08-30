@@ -52,6 +52,10 @@ xml.Orders(pages: (@shipments.total_count/50.0).ceil) {
       xml.CustomField2   shipment.number
 
 
+      unless order.custom_tags.empty?
+        xml.CustomField3 order.custom_tags.join(",")
+      end
+
 =begin
       if order.gift?
         xml.Gift
