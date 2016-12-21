@@ -10,6 +10,10 @@ Spree::Order.class_eval do
       tags << :first_order
     end
 
+    if respond_to?(:wholesale?) && wholesale?
+      tags << :wholesale
+    end
+
     tags
   end
 end
